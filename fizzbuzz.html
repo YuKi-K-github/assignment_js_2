@@ -12,38 +12,41 @@
     <input type='text' id='fizz'><br>
     <label>buzznum:</label>
     <input type='text' id='buzz'><br>
-    <button type="button" onclick="fizzbuss()">実行</button>
+    <button type="button" onclick="fizzbuzz()">実行</button>
     <p>【出力】</p>
     <div id="fizzbuzz-result"></div>
     <script>
-        function fizzbuss(){
-            let fizzNum = Number(document.getElementById('fizz').value);
-            let buzzNum = Number(document.getElementById('buzz').value);
-            let Array = [];
-            let Result = document.getElementById('fizzbuzz-result');
-
-            if(!Number.isInteger(fizzNum) || !Number.isInteger(buzzNum) || fizzNum === 0 || buzzNum === 0) {
-                Result.textContent = '整数値を入力してください';
-                return;
-            }else{
-                
-                for(i = 1; i <= 99; i++){
-                    if(i % fizzNum === 0 && i % buzzNum === 0) {
-                        Array.push('FizzBuzz' +  i);
-                    }else if(i % fizzNum === 0) {
-                        Array.push('Fizz' +  i);
-                    }else if(i % buzzNum === 0){
-                        Array.push('Buzz' +  i);
+            function fizzbuzz(){
+                let fizzNum = Number(document.getElementById('fizz').value);
+                let buzzNum = Number(document.getElementById('buzz').value);
+                let Array = [];
+                let Result = document.getElementById('fizzbuzz-result');
+    
+                if(!Number.isInteger(fizzNum) || !Number.isInteger(buzzNum) || fizzNum === 0 || buzzNum === 0) {
+                    Result.textContent = '整数値を入力してください';
+                    return;
+                }else{
+                    
+                    for(i = 1; i <= 99; i++){
+                        if(i % fizzNum === 0 && i % buzzNum === 0) {
+                            Array.push('FizzBuzz' +  i);
+                        }else if(i % fizzNum === 0) {
+                            Array.push('Fizz' +  i);
+                        }else if(i % buzzNum === 0){
+                            Array.push('Buzz' +  i);
+                        }
+                    }
+                    for(const n of Array) {
+                        const p = document.createElement('p');
+                        p.textContent = n;
+                        Result.appendChild(p);
                     }
                 }
-                for(const n of Array) {
-                    const p = document.createElement('p');
-                    p.textContent = n;
-                    Result.appendChild(p);
+                if(!Array === []){
+                    // reloadメソッドによりページをリロード
+                    window.location.reload();
                 }
-            }
-        }
-
+            }            
     </script>
 </body>
 </html>
