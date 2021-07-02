@@ -19,27 +19,28 @@
     function fizzbuzz(){
       const fizzNum = Number(document.getElementById('fizz').value);
       const buzzNum = Number(document.getElementById('buzz').value);
-      const Array = [];
-      const Result = document.getElementById('fizzbuzz-result');
-      Result.textContent = '';
+      const array = [];
+      const result = document.getElementById('fizzbuzz-result');
+      result.textContent = '';
+
       if(!Number.isInteger(fizzNum) || !Number.isInteger(buzzNum) || fizzNum === 0 || buzzNum === 0) {
-        Result.textContent = '整数値を入力してください';
+        result.textContent = '整数値を入力してください';
         return;
       }else{
         
         for(i = 1; i <= 99; i++){
           if(i % fizzNum === 0 && i % buzzNum === 0) {
-            Array.push('FizzBuzz' +  i);
+            array.push('FizzBuzz' +  i);
           }else if(i % fizzNum === 0) {
-            Array.push('Fizz' +  i);
+            array.push('Fizz' +  i);
           }else if(i % buzzNum === 0){
-            Array.push('Buzz' +  i);
+            array.push('Buzz' +  i);
           }
         }
-        for(const n of Array) {
+        for(const n of array) {
           const p = document.createElement('p');
           p.textContent = n;
-          Result.appendChild(p);
+          result.appendChild(p);
         }
       }
     }            
